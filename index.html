@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokemon Team Builder</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#bfe3ee; }
+    .card {
+      width: 650px; margin: 30px auto; background: white;
+      border: 6px solid #d8a021; border-radius: 30px; padding: 20px 25px;
+    }
+    h2 { text-align:center; margin: 10px 0 15px; font-weight: 600; }
+    .row { display:flex; justify-content:center; gap: 10px; align-items:center; }
+    #nameInput { width: 220px; padding: 6px; }
+    #spriteWrap { display:flex; justify-content:center; margin: 18px 0; min-height: 220px; }
+    #sprite { width: 220px; height: 220px; object-fit: contain; image-rendering: pixelated; }
+    .audioWrap { display:flex; justify-content:center; margin: 10px 0 18px; }
+    .movesGrid {
+      display:grid; grid-template-columns: 1fr 1fr; gap: 10px 18px;
+      width: 70%; margin: 0 auto 14px;
+    }
+    select { width: 100%; padding: 4px; }
+    .center { display:flex; justify-content:center; margin-top: 10px; }
+    #status { text-align:center; margin-top: 10px; min-height: 20px; }
+    #teamTable {
+      width: 85%; margin: 14px auto 0; border-collapse: collapse;
+    }
+    #teamTable td, #teamTable th { border: 1px solid #333; padding: 8px; vertical-align: top; }
+    .teamSprite { width: 60px; height: 60px; object-fit: contain; image-rendering: pixelated; }
+    ul { margin: 0; padding-left: 18px; }
+    button { padding: 6px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Name or ID</h2>
+
+    <div class="row">
+      <input id="nameInput" type="text" placeholder="e.g., snorlax or 143" />
+      <button id="findBtn">Find</button>
+    </div>
+
+    <div id="spriteWrap">
+      <img id="sprite" alt="Pokemon sprite/art" />
+    </div>
+
+    <div class="audioWrap">
+      <audio id="cryAudio" controls></audio>
+    </div>
+
+    <div class="movesGrid">
+      <select id="move1"></select>
+      <select id="move2"></select>
+      <select id="move3"></select>
+      <select id="move4"></select>
+    </div>
+
+    <div class="center">
+      <button id="addBtn">Add to Team</button>
+    </div>
+
+    <div id="status"></div>
+
+    <table id="teamTable">
+      <thead>
+        <tr>
+          <th>Pokemon</th>
+          <th>Moves</th>
+        </tr>
+      </thead>
+      <tbody id="teamBody"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
